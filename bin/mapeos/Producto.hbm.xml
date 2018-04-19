@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!--
+
+
+
+-->
+
+<hibernate-mapping>
+	<class name="Producto" table="producto">
+	
+		<!-- 1.CAMPOS CLAVE -->
+			<!-- Primaria -->
+				<id column="id" name="id">
+					<generator class="identity"/>
+				</id>
+			<!--  -->
+		<!--  -->
+	
+	
+		<!-- 2.ATRIBUTOS DESCRIPTIVOS-->
+			<property column="descripcion" name="descripcion" type="string"/>
+			<property column="precio" name="precio" type="float"/>
+		<!--  -->
+	
+		<joined-subclass name="Medicamento" table="medicamento">
+			<key column="idMedicamento"></key>
+			<property column="laboratorio" name="laboratorio" type="string"/>
+			<property column="comentario" name="comentario" type="string"/>
+		</joined-subclass>
+		
+		<joined-subclass name="Perfume" table="perfume">
+			<key column="idPerfume"></key>
+			<property column="comentario" name="comentario" type="string"/>
+		</joined-subclass>
+	
+		
+	</class>
+</hibernate-mapping>

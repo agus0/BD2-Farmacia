@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="datos.DetalleVenta" table="detalleVenta">
+	
+
+		<!-- 1.CAMPOS CLAVE -->
+			<!-- Primaria -->
+				<id column="id" name="id">
+					<generator class="identity"/>
+				</id>
+			<!--  -->
+			
+		<!--  -->
+		
+		<!-- 2.ATRIBUTOS DESCRIPTIVOS -->
+			<property column="cantidad" name="cantidad" type="int"/>
+			<property column="precioUnitario" name="precioUnitario" type="float"/>
+			<property column="subtotal" name="subtotal" type="float"/>
+		<!--  -->
+		
+		
+		<!-- 3.RELACIONES -->
+
+			
+			<!-- *..1 -->
+				<many-to-one column="producto" name="producto" class="datos.Producto" not-null="true"/>
+			<!--  -->
+					
+		<!--  -->
+		
+	</class>
+</hibernate-mapping>
