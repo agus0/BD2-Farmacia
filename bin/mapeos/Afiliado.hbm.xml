@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+	<class name="datos.Afiliado" table="afiliado">
+	
+		<!-- 1.CAMPOS CLAVE -->
+			<!-- Primaria -->
+				<id column="id" name="id">
+					<generator class="identity"/>
+				</id>
+			<!--  -->
+		<!--  -->
+	
+		<!-- 2.ATRIBUTOS DESCRIPTIVOS -->
+			<property column="numafiliado" name="numafiliado" type="int"/>
+			<property column="fecafiliacion" name="fecafiliacion" type="calendar"/>
+		<!--  -->
+		
+		
+		<!-- 3.RELACIONES -->
+			<!-- *..1 -->
+				<many-to-one column="idObraSocial" name="obrasocial" class="datos.ObraSocial" not-null="true"/>
+			<!--  -->		
+		<!--  -->
+		
+	</class>
+</hibernate-mapping>

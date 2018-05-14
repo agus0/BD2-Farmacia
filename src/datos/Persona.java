@@ -4,12 +4,12 @@ package datos;
 
 public class Persona {
 
-	protected int idPersona;
-	protected String dni;
-	protected String nombre;
-	protected String apellido;
-	protected Afiliado afiliado;
-	protected Domicilio domicilio ;
+	private int idPersona;
+	private String dni;
+	private String nombre;
+	private String apellido;
+	private Afiliado afiliado;
+	private Domicilio domicilio ;
 	
 	public Persona(String dni, String nombre, String apellido) {
 		super();

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+
+<hibernate-mapping>
+	<class name="datos.Domicilio" table="domicilio">
+	
+		<!-- 1.CAMPOS CLAVE -->
+			<!-- Primaria -->
+				<id column="id" name="idClaseA">
+					<generator class="identity"/>
+				</id>
+			<!--  -->
+		<!--  -->
+	
+		<!-- 2.ATRIBUTOS DESCRIPTIVOS -->
+			<property column="calle" name="calle" type="string"/>
+			<property column="numero" name="numero" type="string"/>
+			<property column="localidad" name="localidad" type="string"/>
+			<property column="provincia" name="provincia" type="string"/>
+		<!--  -->
+
+		
+	</class>
+</hibernate-mapping>
