@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <!--
-
-	private Afiliado afiliado;
-	private Domicilio domicilio ;
 
 -->
 
@@ -33,12 +30,12 @@
 				<many-to-one column="idAfiliado" name="afiliado" class="datos.Afiliado" not-null="true"/>
 			<!--  -->
 			
-			<joined-subclass name="Cliente" table="cliente">
+			<joined-subclass name="datos.Cliente" table="cliente">
 				<key column="id"></key>
-				<property column=descripcion name="descripcion" type="string"/>
+				<property column="descripcion" name="descripcion" type="string"/>
 			</joined-subclass>
 			
-			<joined-subclass name="Empleado" table="empleado">
+			<joined-subclass name="datos.Empleado" table="empleado">
 				<key column="id"></key>
 				<property column="cuil" name="cuil" type="string"/>
 			</joined-subclass>
