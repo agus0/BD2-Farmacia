@@ -6,9 +6,9 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import datos.ObraSocial;
+import datos.Empleado;
 
-public class ObraSocialDao {
+public class EmpleadoDao {
 	private static Session session;
 	private Transaction tx;
 
@@ -25,7 +25,7 @@ public class ObraSocialDao {
 
 /* 1.ABM */
 	//Agregar
-	public int agregar(ObraSocial objeto) {
+	public int agregar(Empleado objeto) {
 		int id=0;
 		try {
 			iniciaOperacion();
@@ -41,7 +41,7 @@ public class ObraSocialDao {
 	}
 	
 	//Actualizar
-	public void actualizar(ObraSocial objeto) throws HibernateException {
+	public void actualizar(Empleado objeto) throws HibernateException {
 		try {
 			iniciaOperacion();
 			session.update(objeto);
@@ -55,7 +55,7 @@ public class ObraSocialDao {
 	}
 	
 	//Eliminar
-	public void eliminar(ObraSocial objeto) throws HibernateException {
+	public void eliminar(Empleado objeto) throws HibernateException {
 		try {
 			iniciaOperacion();
 			session.delete(objeto);
@@ -72,11 +72,11 @@ public class ObraSocialDao {
 	
 /* 2.TRAYENDO LA INFORMACION */
 	//Mediante su clave primaria
-	public ObraSocial traerObraSocial(int idObraSocial) throws HibernateException {
-		ObraSocial objeto = null ;
+	public Empleado traerPersona(int idEmpleado) throws HibernateException {
+		Empleado objeto = null ;
 		try {
 			iniciaOperacion();
-			objeto = (ObraSocial)session.get(ObraSocial.class, idObraSocial);
+			objeto = (Empleado)session.get(Empleado.class, idEmpleado);
 		} finally {
 			session.close();
 		}
@@ -84,25 +84,25 @@ public class ObraSocialDao {
 	}
 	
 	//Mediante algun atributo
-	public ObraSocial traerObraSocialPorNombre(String nombre) throws HibernateException {
-		ObraSocial objeto = null ;
+	public Empleado traerEmpleadoPorCuil(String cuil) throws HibernateException {
+		Empleado objeto = null ;
 		try {
 			iniciaOperacion();
-			objeto = (ObraSocial)session.createQuery("from ObraSocial c where c.nombre="+nombre).uniqueResult();
+			objeto = (Empleado)session.createQuery("from Empleado e where e.cuil="+cuil).uniqueResult();
 		} finally {
 			session.close();
 		}
 		return objeto;
 	}
 	
-	//Traer en una lista todos los ObraSocial's que hayan.
+	//Traer en una lista todos los Persona's que hayan.
 	@SuppressWarnings("unchecked")
-	public List<ObraSocial> traerObraSocial() throws HibernateException {
-		List<ObraSocial> lista=null;
+	public List<Empleado> traerEmpleado() throws HibernateException {
+		List<Empleado> lista=null;
 
 		try {
 			iniciaOperacion();
-			lista = session.createQuery("from ObraSocial").list();
+			lista = session.createQuery("from Empleado").list();
 		}finally {
 			session.close();
 		}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping>
+	<class name="datos.Sucursal" table="sucursal">
+	
+		<!-- 1.CAMPOS CLAVE -->
+			<!-- Primaria -->
+				<id column="id" name="id">
+					<generator class="identity"/>
+				</id>
+			<!--  -->
+		<!--  -->
+		
+		<!-- 3.RELACIONES -->
+			
+			<!-- 1..* -->
+				<set name="empleados" table="empleado" inverse="true" lazy="true" fetch="select">
+					<key column="idEmpleado" not-null="true"/>
+					<one-to-many class="datos.Empleado"/>
+				</set>
+			<!--  -->
+			
+			<!-- *..1 -->
+				<many-to-one column="idDomicilio" name="domicilio" class="datos.Domicilio" not-null="true"/>
+				<many-to-one column="idEncargado" name="encargado" class="datos.Empleado" not-null="true"/>
+			<!--  -->		
+		<!--  -->
+		
+	</class>
+</hibernate-mapping>

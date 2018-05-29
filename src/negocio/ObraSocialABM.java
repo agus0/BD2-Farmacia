@@ -36,8 +36,8 @@ public class ObraSocialABM {
 		return ObraSocial;
 	}
 	
-	public ObraSocial traerObraSocialPorAtributo(int atributo) throws Exception{
-		ObraSocial ObraSocial = dao.traerObraSocialPorAtributo(atributo);
+	public ObraSocial traerObraSocialPorNombre(String atributo) throws Exception{
+		ObraSocial ObraSocial = dao.traerObraSocialPorNombre(atributo);
 		if (ObraSocial==null)
 			throw new Exception("ObraSocial nulo");
 		return ObraSocial;

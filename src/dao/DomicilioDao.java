@@ -6,9 +6,9 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import datos.ObraSocial;
+import datos.Domicilio;
 
-public class ObraSocialDao {
+public class DomicilioDao {
 	private static Session session;
 	private Transaction tx;
 
@@ -25,7 +25,7 @@ public class ObraSocialDao {
 
 /* 1.ABM */
 	//Agregar
-	public int agregar(ObraSocial objeto) {
+	public int agregar(Domicilio objeto) {
 		int id=0;
 		try {
 			iniciaOperacion();
@@ -41,7 +41,7 @@ public class ObraSocialDao {
 	}
 	
 	//Actualizar
-	public void actualizar(ObraSocial objeto) throws HibernateException {
+	public void actualizar(Domicilio objeto) throws HibernateException {
 		try {
 			iniciaOperacion();
 			session.update(objeto);
@@ -55,7 +55,7 @@ public class ObraSocialDao {
 	}
 	
 	//Eliminar
-	public void eliminar(ObraSocial objeto) throws HibernateException {
+	public void eliminar(Domicilio objeto) throws HibernateException {
 		try {
 			iniciaOperacion();
 			session.delete(objeto);
@@ -72,11 +72,11 @@ public class ObraSocialDao {
 	
 /* 2.TRAYENDO LA INFORMACION */
 	//Mediante su clave primaria
-	public ObraSocial traerObraSocial(int idObraSocial) throws HibernateException {
-		ObraSocial objeto = null ;
+	public Domicilio traerDomicilio(int idDomicilio) throws HibernateException {
+		Domicilio objeto = null ;
 		try {
 			iniciaOperacion();
-			objeto = (ObraSocial)session.get(ObraSocial.class, idObraSocial);
+			objeto = (Domicilio)session.get(Domicilio.class, idDomicilio);
 		} finally {
 			session.close();
 		}
@@ -84,25 +84,16 @@ public class ObraSocialDao {
 	}
 	
 	//Mediante algun atributo
-	public ObraSocial traerObraSocialPorNombre(String nombre) throws HibernateException {
-		ObraSocial objeto = null ;
-		try {
-			iniciaOperacion();
-			objeto = (ObraSocial)session.createQuery("from ObraSocial c where c.nombre="+nombre).uniqueResult();
-		} finally {
-			session.close();
-		}
-		return objeto;
-	}
+
 	
-	//Traer en una lista todos los ObraSocial's que hayan.
+	//Traer en una lista todos los Persona's que hayan.
 	@SuppressWarnings("unchecked")
-	public List<ObraSocial> traerObraSocial() throws HibernateException {
-		List<ObraSocial> lista=null;
+	public List<Domicilio> trearDomicilio() throws HibernateException {
+		List<Domicilio> lista=null;
 
 		try {
 			iniciaOperacion();
-			lista = session.createQuery("from ObraSocial").list();
+			lista = session.createQuery("from Domicilio").list();
 		}finally {
 			session.close();
 		}
