@@ -8,6 +8,13 @@ public class Afiliado {
 	private ObraSocial 			obrasocial;
 	private GregorianCalendar 	fecafiliacion;
 	
+	
+	
+	public Afiliado() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Afiliado(int numafiliado, ObraSocial obrasocial, GregorianCalendar fecafiliacion) {
 		super();
 		this.numafiliado = numafiliado;

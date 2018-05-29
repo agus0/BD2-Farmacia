@@ -11,6 +11,13 @@ public class Persona {
 	private Afiliado afiliado;
 	private Domicilio domicilio ;
 	
+	
+	
+	public Persona() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Persona(String dni, String nombre, String apellido) {
 		super();
 		this.dni = dni;

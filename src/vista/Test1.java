@@ -8,7 +8,7 @@ public class Test1 {
 		
 		ObraSocialABM obraSocialABM = new ObraSocialABM();
 		obraSocialABM.agregar("Osmecon", "Nos importa tu salud");
-		
+		//obraSocialABM.traerObraSocial();
 	}
 
 }

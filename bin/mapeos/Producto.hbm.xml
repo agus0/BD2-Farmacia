@@ -25,13 +25,13 @@
 			<property column="precio" name="precio" type="float"/>
 		<!--  -->
 	
-		<joined-subclass name="Medicamento" table="medicamento">
+		<joined-subclass name="datos.Medicamento" table="medicamento">
 			<key column="idMedicamento"></key>
 			<property column="laboratorio" name="laboratorio" type="string"/>
 			<property column="comentario" name="comentario" type="string"/>
 		</joined-subclass>
 		
-		<joined-subclass name="Perfume" table="perfume">
+		<joined-subclass name="datos.Perfume" table="perfume">
 			<key column="idPerfume"></key>
 			<property column="comentario" name="comentario" type="string"/>
 		</joined-subclass>

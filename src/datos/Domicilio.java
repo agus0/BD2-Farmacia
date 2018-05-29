@@ -8,6 +8,13 @@ public class Domicilio {
 	private String provincia;
 	
 	
+	
+	
+	public Domicilio() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Domicilio(String calle, String numero, String localidad, String provincia) {
 		super();
 		this.calle = calle;

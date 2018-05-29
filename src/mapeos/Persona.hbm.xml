@@ -31,12 +31,12 @@
 			<!--  -->
 			
 			<joined-subclass name="datos.Cliente" table="cliente">
-				<key column="id"></key>
+				<key column="idCliente"></key>
 				<property column="descripcion" name="descripcion" type="string"/>
 			</joined-subclass>
 			
 			<joined-subclass name="datos.Empleado" table="empleado">
-				<key column="id"></key>
+				<key column="idEmpleado"></key>
 				<property column="cuil" name="cuil" type="string"/>
 			</joined-subclass>
 					

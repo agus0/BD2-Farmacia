@@ -4,6 +4,14 @@ public class Empleado extends Persona{
 	private int idEmpleado;
 	private String cuil;
 
+	
+	
+	
+	public Empleado() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Empleado(String dni, String nombre, String apellido,String cuil) {
 		super(dni, nombre, apellido);
 		this.cuil = cuil;

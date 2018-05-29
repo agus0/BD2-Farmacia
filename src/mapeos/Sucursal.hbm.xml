@@ -20,8 +20,8 @@
 		<!-- 3.RELACIONES -->
 			
 			<!-- 1..* -->
-				<set name="empleados" table="empleado" order-by="id asc" inverse="true" lazy="true" fetch="select">
-					<key column="id" not-null="true"/>
+				<set name="empleados" table="empleado" inverse="true" lazy="true" fetch="select">
+					<key column="idEmpleado" not-null="true"/>
 					<one-to-many class="datos.Empleado"/>
 				</set>
 			<!--  -->

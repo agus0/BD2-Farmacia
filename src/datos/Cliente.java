@@ -4,8 +4,14 @@ public class Cliente extends Persona{
 	private int idCliente;
 	private String descripcion;
 	
-	
-	
+
+	public Cliente() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	public Cliente(String dni, String nombre, String apellido,String descripcion) {
 		super(dni, nombre, apellido);
 		this.descripcion = descripcion;

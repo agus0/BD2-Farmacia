@@ -6,6 +6,11 @@ public class ObraSocial {
 	private String 	descripcion;
 	
 	
+	
+	public ObraSocial() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public ObraSocial(String nombre, String descripcion) {
 		super();
 		this.nombre = nombre;

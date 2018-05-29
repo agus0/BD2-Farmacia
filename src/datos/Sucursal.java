@@ -9,7 +9,14 @@ public class Sucursal {
 	private Domicilio	   	domicilio;
 	private Empleado 		encargado;
 	
-    public Sucursal (Domicilio domicilio, Empleado encargado) {
+	
+	
+    public Sucursal() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Sucursal (Domicilio domicilio, Empleado encargado) {
     	super();
     	this.domicilio = domicilio;
     	this.encargado = encargado;

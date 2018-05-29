@@ -34,8 +34,8 @@
 			
 			<!-- *..1 -->
 				<many-to-one column="idCliente" name="cliente" class="datos.Cliente" not-null="true"/>
-				<many-to-one column="idVendedor" name="empleado" class="datos.Empleado" not-null="true"/>
-				<many-to-one column="idCajero" name="empleado" class="datos.Empleado" not-null="true"/>
+				<many-to-one column="idVendedor" name="vendedor" class="datos.Empleado" not-null="true"/>
+				<many-to-one column="idCajero" name="cajero" class="datos.Empleado" not-null="true"/>
 				<many-to-one column="idSucursal" name="sucursal" class="datos.Sucursal" not-null="true"/>
 			<!--  -->			
 		<!--  -->
