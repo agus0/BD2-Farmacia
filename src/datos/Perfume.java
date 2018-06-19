@@ -8,12 +8,16 @@ public class Perfume extends Producto{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Perfume(String descripcion, float precio, String comentario) {
-		super(descripcion, precio);
-		this.comentario = comentario;
-		// TODO Auto-generated constructor stub
-	}
+
 	
+	
+	public Perfume(String descripcion, String laboratorio, float precio, String comentario) {
+		super(descripcion, laboratorio, precio);
+		this.comentario = comentario;
+	}
+
+
+
 	public int getIdPerfume() {
 		return idPerfume;
 	}

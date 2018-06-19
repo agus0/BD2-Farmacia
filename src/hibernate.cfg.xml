@@ -10,7 +10,7 @@
 			jdbc:mysql://localhost/farmacia?createDatabaseIfNotExist=true
 		</property>
 		<property name="connection.username">root</property>
-		<property name="connection.password">root</property>
+		<property name="connection.password">Sklam266Dtrank</property>
 		<property name="connection.pool_size">1</property>
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="show_sql">true</property> <!-- en true muestra hql en consola -->

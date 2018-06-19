@@ -22,12 +22,12 @@
 	
 		<!-- 2.ATRIBUTOS DESCRIPTIVOS-->
 			<property column="descripcion" name="descripcion" type="string"/>
+			<property column="laboratorio" name="laboratorio" type="string"/>
 			<property column="precio" name="precio" type="float"/>
 		<!--  -->
 	
 		<joined-subclass name="datos.Medicamento" table="medicamento">
 			<key column="idMedicamento"></key>
-			<property column="laboratorio" name="laboratorio" type="string"/>
 			<property column="comentario" name="comentario" type="string"/>
 		</joined-subclass>
 		

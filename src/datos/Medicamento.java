@@ -2,7 +2,6 @@ package datos;
 
 public class Medicamento extends Producto{
 	private int idMedicamento;
-	private String laboratorio;
 	private String comentario;
 	
 	
@@ -10,13 +9,14 @@ public class Medicamento extends Producto{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Medicamento(String descripcion, float precio, String laboratorio, String comentario) {
-		super(descripcion, precio);
-		this.laboratorio = laboratorio;
+
+	public Medicamento(String descripcion, String laboratorio, float precio, String comentario) {
+		super(descripcion, laboratorio, precio);
 		this.comentario = comentario;
-		// TODO Auto-generated constructor stub
 	}
-	
+
+
+
 	public int getIdMedicamento() {
 		return idMedicamento;
 	}
@@ -25,13 +25,6 @@ public class Medicamento extends Producto{
 		this.idMedicamento = idMedicamento;
 	}
 	
-	public String getLaboratorio() {
-		return laboratorio;
-	}
-	
-	public void setLaboratorio(String laboratorio) {
-		this.laboratorio = laboratorio;
-	}
 	public String getComentario() {
 		return comentario;
 	}
@@ -41,10 +34,8 @@ public class Medicamento extends Producto{
 	
 	@Override
 	public String toString() {
-		return "Perfume [idMedicamento=" + idMedicamento + ", laboratorio="
-				+ laboratorio + ", comentario=" + comentario + "]";
+		return "Medicamento [idMedicamento=" + idMedicamento + ", comentario="
+				+ comentario + "]";
 	}
-	
-	
 	
 }

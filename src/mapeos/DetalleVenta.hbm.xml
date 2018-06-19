@@ -24,9 +24,9 @@
 		
 		<!-- 3.RELACIONES -->
 
-			
 			<!-- *..1 -->
-				<many-to-one column="producto" name="producto" class="datos.Producto" not-null="true"/>
+				<many-to-one column="idProducto" name="producto" class="datos.Producto" not-null="true"/>
+				<many-to-one column="idVenta" name="venta" class="datos.Venta" not-null="true"/>
 			<!--  -->
 					
 		<!--  -->

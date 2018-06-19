@@ -3,6 +3,7 @@ package datos;
 public class DetalleVenta {
 	private int id;
 	private Producto producto;
+	private Venta venta;
 	private int cantidad;
 	private float precioUnitario;
 	private float subtotal;
@@ -13,12 +14,13 @@ public class DetalleVenta {
 	}
 
 	public DetalleVenta(Producto producto, int cantidad, float precioUnitario,
-			float subtotal) {
+			float subtotal, Venta venta) {
 		super();
 		this.producto = producto;
 		this.cantidad = cantidad;
 		this.precioUnitario = precioUnitario;
 		this.subtotal = subtotal;
+		this.venta = venta;
 	}
 
 	public int getId() {
@@ -60,12 +62,22 @@ public class DetalleVenta {
 	public void setSubtotal(float subtotal) {
 		this.subtotal = subtotal;
 	}
+	
+	
+
+	public Venta getVenta() {
+		return venta;
+	}
+
+	public void setVenta(Venta venta) {
+		this.venta = venta;
+	}
 
 	@Override
 	public String toString() {
-		return "DetalleVenta [id=" + id + ", cantidad=" + cantidad
-				+ ", precioUnitario=" + precioUnitario + ", subtotal="
-				+ subtotal + "]";
+		return "DetalleVenta [id=" + id + ", producto=" + producto + ", venta="
+				+ venta + ", cantidad=" + cantidad + ", precioUnitario="
+				+ precioUnitario + ", subtotal=" + subtotal + "]";
 	}
 	
 	

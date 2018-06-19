@@ -3,18 +3,22 @@ package datos;
 public class Producto {
 	private int id;
 	private String descripcion;
+	private String laboratorio;
 	private float precio;
 	
 	public Producto() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
+	}	
 
-	public Producto(String descripcion, float precio) {
+	public Producto(String descripcion, String laboratorio, float precio) {
 		super();
 		this.descripcion = descripcion;
+		this.laboratorio = laboratorio;
 		this.precio = precio;
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -40,13 +44,18 @@ public class Producto {
 		this.precio = precio;
 	}
 
+	public String getLaboratorio() {
+		return laboratorio;
+	}
+
+	public void setLaboratorio(String laboratorio) {
+		this.laboratorio = laboratorio;
+	}
+
 	@Override
 	public String toString() {
 		return "Producto [id=" + id + ", descripcion=" + descripcion
-				+ ", precio=" + precio + "]";
+				+ ", laboratorio=" + laboratorio + ", precio=" + precio + "]";
 	}
-	
-	
-	
 	
 }

@@ -27,7 +27,7 @@
 		<!-- 3.RELACIONES -->
 			<!-- *..1 -->
 				<many-to-one column="idDomicilio" name="domicilio" class="datos.Domicilio" not-null="true"/>
-				<many-to-one column="idAfiliado" name="afiliado" class="datos.Afiliado" not-null="true"/>
+				<many-to-one column="idAfiliado" name="afiliado" class="datos.Afiliado" not-null="false"/>
 			<!--  -->
 			
 			<joined-subclass name="datos.Cliente" table="cliente">
