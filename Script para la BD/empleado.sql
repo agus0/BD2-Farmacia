@@ -1,0 +1,11 @@
+SET FOREIGN_KEY_CHECKS=0;
+insert into empleado (idEmpleado, cuil) values (11, '32-4606357');
+insert into empleado (idEmpleado, cuil) values (12, '03-2533634');
+insert into empleado (idEmpleado, cuil) values (13, '74-3269699');
+insert into empleado (idEmpleado, cuil) values (14, '40-4830810');
+insert into empleado (idEmpleado, cuil) values (15, '08-2495125');
+insert into empleado (idEmpleado, cuil) values (16, '89-5272041');
+insert into empleado (idEmpleado, cuil) values (17, '49-4733675');
+insert into empleado (idEmpleado, cuil) values (18, '71-3970306');
+insert into empleado (idEmpleado, cuil) values (19, '44-2191730');
+SET FOREIGN_KEY_CHECKS=1;

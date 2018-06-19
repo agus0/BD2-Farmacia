@@ -1,0 +1,10 @@
+insert into producto (id, descripcion, laboratorio, precio) values (1, 'Flutamide', 'Golden State Medical Supply, Inc.', 502);
+insert into producto (id, descripcion, laboratorio, precio) values (2, 'Baby Anti Monkey Butt Diaper Rash', 'DSE Healthcare Solutions, LLC.', 553);
+insert into producto (id, descripcion, laboratorio, precio) values (3, 'Halobetasol Propionate', 'Taro Pharmaceuticals U.S.A., Inc.', 406);
+insert into producto (id, descripcion, laboratorio, precio) values (4, 'PHOMA DESTRUCTIVA', 'Allergy Laboratories, Inc.', 1002);
+insert into producto (id, descripcion, laboratorio, precio) values (5, 'Venlafaxine Hydrochloride', 'Aphena Pharma Solutions - Tennessee, LLC', 1212);
+insert into producto (id, descripcion, laboratorio, precio) values (6, 'Mattifying Tonic', 'JAFRA COSMETICS INTERNATIONAL', 710);
+insert into producto (id, descripcion, laboratorio, precio) values (7, 'Griseofulvin', 'Oceanside Pharmaceuticals', 469);
+insert into producto (id, descripcion, laboratorio, precio) values (8, '1 Million', 'Paco Rabanne', 1700);
+insert into producto (id, descripcion, laboratorio, precio) values (9, 'Good Girl', 'Carolina Herrera', 1800);
+insert into producto (id, descripcion, laboratorio, precio) values (10, 'Invictus', 'Paco Rabanne', 700);

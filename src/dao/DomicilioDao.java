@@ -88,7 +88,7 @@ public class DomicilioDao {
 	
 	//Traer en una lista todos los Persona's que hayan.
 	@SuppressWarnings("unchecked")
-	public List<Domicilio> trearDomicilio() throws HibernateException {
+	public List<Domicilio> traerDomicilio() throws HibernateException {
 		List<Domicilio> lista=null;
 
 		try {
