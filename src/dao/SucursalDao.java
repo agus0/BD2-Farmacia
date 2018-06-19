@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.hibernate.HibernateException;
@@ -7,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import datos.Sucursal;
+import datos.Venta;
 
 public class SucursalDao{
 	private static Session session;
@@ -72,7 +74,7 @@ public class SucursalDao{
 	
 /* 2.TRAYENDO LA INFORMACION */
 	//Mediante su clave primaria
-	public Sucursal traerProducto(int idSucursal) throws HibernateException {
+	public Sucursal traerSucursal(int idSucursal) throws HibernateException {
 		Sucursal objeto = null ;
 		try {
 			iniciaOperacion();
@@ -98,4 +100,67 @@ public class SucursalDao{
 		return lista;
 	}
 /* --- */
+	
+	@SuppressWarnings("unchecked")
+	public List<Venta> traerVentasDeLaCadena(GregorianCalendar fecha1, GregorianCalendar fecha2) {
+		List<Venta> lista=null;
+		
+		try {
+			iniciaOperacion();
+			lista = session.createQuery("from Venta v inner join fetch v.cliente inner join fetch v.vendedor inner join fetch v.cajero inner join fetch v.sucursal inner join fetch v.detalleVentas dv inner join fetch dv.producto where v.fecha >= :fecha1 and v.fecha <= :fecha2")
+					.setParameter("fecha1", fecha1)
+					.setParameter("fecha2", fecha2)
+					.list();
+		}finally {
+			session.close();
+		}
+		return lista;
+	
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Venta> traerVentasPorSucursal(GregorianCalendar fecha1, GregorianCalendar fecha2, int idSucursal) {
+		List<Venta> lista=null;
+		
+		try {
+			iniciaOperacion();
+			lista = session.createQuery("from Venta v inner join fetch v.cliente inner join fetch v.vendedor inner join fetch v.cajero inner join fetch v.sucursal sucu inner join fetch v.detalleVentas dv inner join fetch dv.producto where sucu.id = :idSucursal and v.fecha >= :fecha1 and v.fecha <= :fecha2")
+					.setParameter("fecha1", fecha1)
+					.setParameter("fecha2", fecha2)
+					.setParameter("idSucursal", idSucursal)
+					.list();
+		}finally {
+			session.close();
+		}
+		return lista;
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public List<Venta> traerVentasDeLaCadenaPorObraSocial(GregorianCalendar fecha1, GregorianCalendar fecha2, String obraSocial) {
+		List<Venta> lista=null;
+		
+		try {
+			iniciaOperacion();
+			lista = session.createQuery("from Venta v "
+					+ "inner join fetch v.cliente cliente "
+					+ "inner join fetch cliente.afiliado afiliado"
+					+ "inner join fetch afiliado.obrasocial obrasocial"
+					+ "inner join fetch v.vendedor "
+					+ "inner join fetch v.cajero "
+					+ "inner join fetch v.sucursal "
+					+ "inner join fetch v.detalleVentas dv "
+					+ "inner join fetch dv.producto "
+					+ "where obrasocial.nombre = :nombreObraSocial "
+					+ "and v.fecha >= :fecha1 and v.fecha <= :fecha2")
+					.setParameter("fecha1", fecha1)
+					.setParameter("fecha2", fecha2)
+					.setParameter("nombreObraSocial", obraSocial)
+					.list();
+		}finally {
+			session.close();
+		}
+		return lista;
+	
+	}
 }

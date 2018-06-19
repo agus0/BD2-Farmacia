@@ -6,7 +6,7 @@ import datos.Venta;
 import negocio.Funciones;
 import negocio.SucursalABM;
 
-public class Test1 {
+public class Test2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -16,11 +16,14 @@ public class Test1 {
 		
 		SucursalABM abmSucursal = new SucursalABM();
 		List<Venta> lista = null;
+		String obraSocial = "";
 		
-		//TRAER VENTAS DE LA CADENA
-		lista = abmSucursal.traerVentasDeLaCadena(fecha1, fecha2);
+		//TRAER VENTAS DE LA CADENA POR OBRA SOCIAL
+		obraSocial = "OSECAC";
+		lista = abmSucursal.traerVentasDeLaCadenaPorObraSocial(fecha1, fecha2, obraSocial);
 		
-		System.out.println("VENTAS DE LA CADENA");
+		System.out.println("VENTAS DE LA CADENA POR OBRA SOCIAL");
+		System.out.println("Obra social: " + obraSocial);
 		System.out.println("Total de ventas: " + lista.size());
 		System.out.println("\n");
 		
@@ -36,7 +39,7 @@ public class Test1 {
 			System.out.println("\n");
 		}
 		
-		//TRAER VENTAS POR SUCURSAL
+		/*//TRAER VENTAS POR SUCURSAL
 		int idSucursal = 1;
 		lista = abmSucursal.traerVentasPorSucursal(fecha1, fecha2, idSucursal);
 		
@@ -54,7 +57,7 @@ public class Test1 {
 			System.out.println("Cajero: " + venta.getCajero().getDni() + venta.getCajero().getApellido());
 			System.out.println("Sucursal: " + venta.getSucursal().getId());
 			System.out.println("\n");
-		}
+		}*/
 	}
 
 }
