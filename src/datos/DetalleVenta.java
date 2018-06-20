@@ -79,7 +79,9 @@ public class DetalleVenta {
 				+ venta + ", cantidad=" + cantidad + ", precioUnitario="
 				+ precioUnitario + ", subtotal=" + subtotal + "]";
 	}
-	
-	
+	public void print() {
+	Producto producto = this.getProducto();
+	System.out.println("Cant:"+this.cantidad+"\tDescripcion: "+producto.getDescripcion()+"\t\t\tPrecio: "+this.getPrecioUnitario()+"\t\t\tImporte: "+this.getSubtotal());
+	}
 	
 }

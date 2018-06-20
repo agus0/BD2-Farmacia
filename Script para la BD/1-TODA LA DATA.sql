@@ -53,11 +53,11 @@ insert into perfume (idPerfume, comentario) values (8, 'Eau de toilette');
 insert into perfume (idPerfume, comentario) values (9, 'A fragrance as intense as sensual');
 insert into perfume (idPerfume, comentario) values (10, 'The very best');
 insert into producto (id, descripcion, laboratorio, precio) values (1, 'Flutamide', 'Golden State Medical Supply, Inc.', 502);
-insert into producto (id, descripcion, laboratorio, precio) values (2, 'Baby Anti Monkey Butt Diaper Rash', 'DSE Healthcare Solutions, LLC.', 553);
-insert into producto (id, descripcion, laboratorio, precio) values (3, 'Halobetasol Propionate', 'Taro Pharmaceuticals U.S.A., Inc.', 406);
-insert into producto (id, descripcion, laboratorio, precio) values (4, 'PHOMA DESTRUCTIVA', 'Allergy Laboratories, Inc.', 1002);
-insert into producto (id, descripcion, laboratorio, precio) values (5, 'Venlafaxine Hydrochloride', 'Aphena Pharma Solutions - Tennessee, LLC', 1212);
-insert into producto (id, descripcion, laboratorio, precio) values (6, 'Mattifying Tonic', 'JAFRA COSMETICS INTERNATIONAL', 710);
+insert into producto (id, descripcion, laboratorio, precio) values (2, 'Baby  Rash', 'DSE Healthcare Solutions, LLC.', 553);
+insert into producto (id, descripcion, laboratorio, precio) values (3, 'Halobetasol', 'Taro Pharmaceuticals U.S.A., Inc.', 406);
+insert into producto (id, descripcion, laboratorio, precio) values (4, 'PHOMA DESTR', 'Allergy Laboratories, Inc.', 1002);
+insert into producto (id, descripcion, laboratorio, precio) values (5, 'Venlafaxine', 'Aphena Pharma Solutions - Tennessee, LLC', 1212);
+insert into producto (id, descripcion, laboratorio, precio) values (6, 'Mattifying', 'JAFRA COSMETICS INTERNATIONAL', 710);
 insert into producto (id, descripcion, laboratorio, precio) values (7, 'Griseofulvin', 'Oceanside Pharmaceuticals', 469);
 insert into producto (id, descripcion, laboratorio, precio) values (8, '1 Million', 'Paco Rabanne', 1700);
 insert into producto (id, descripcion, laboratorio, precio) values (9, 'Good Girl', 'Carolina Herrera', 1800);
@@ -354,7 +354,7 @@ set dv.subtotal = dv.precioUnitario * dv.cantidad;
 UPDATE venta 
 INNER JOIN
 (
-    SELECT v2.id, sum(dv.precioUnitario) as totalGastado
+    SELECT v2.id, sum(dv.precioUnitario*dv.cantidad) as totalGastado
 	FROM (select*from venta) v2
 	INNER JOIN detalleventa dv
 	ON dv.idVenta = v2.id

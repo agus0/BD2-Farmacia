@@ -3,6 +3,8 @@ package datos;
 import java.util.GregorianCalendar;
 import java.util.Set;
 
+import negocio.Funciones;
+
 public class Venta {
 	private int id;
 	private Cliente cliente;
@@ -112,6 +114,16 @@ public class Venta {
 				+ ", fecha=" + fecha + "]";
 	}
 	
-	
+	public void print() {
+		System.out.println("\nTICKET:");
+		System.out.println("Nro: " + (this.getSucursal().getId() + "-" + this.getId())+"\t\tFecha: " + Funciones.traerFechaCorta(this.getFecha()));
+		System.out.println("Forma pago: " + this.getFormaPago()+"\tSucursal nro " + this.getSucursal().getId());
+		
+		
+		System.out.println("Cliente: " + this.getCliente().getNombre() + " " + this.getCliente().getApellido()+"\tDNI: "+ this.getCliente().getDni());
+		System.out.println();
+		System.out.println("Vendedor: " + this.getVendedor().getNombre()  + " " +  this.getVendedor().getApellido()+"\tCajero: " + this.getCajero().getNombre()  + " " +  this.getCajero().getApellido());
+		System.out.println("Total venta: " + this.getTotalVenta());
+	}
 	
 }

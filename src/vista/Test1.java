@@ -30,37 +30,14 @@ public class Test1 {
 		System.out.println("Total de ventas: " + lista.size());
 
 		for (Venta venta: lista) {
-			System.out.println("\nTICKET:");
-			System.out.println("Nro: " + (venta.getSucursal().getId() + "-" + venta.getId()));
-			System.out.println("Forma pago: " + venta.getFormaPago());
-			System.out.println("Total venta: " + venta.getTotalVenta());
-			System.out.println("Fecha: " + Funciones.traerFechaCorta(venta.getFecha()));
-			System.out.println("Cliente: " + venta.getCliente().getDni() + " " + venta.getCliente().getApellido());
-			System.out.println("Vendedor: " + venta.getVendedor().getDni()  + " " +  venta.getVendedor().getApellido());
-			System.out.println("Cajero: " + venta.getCajero().getDni()  + " " +  venta.getCajero().getApellido());
-			System.out.println("Sucursal: " + venta.getSucursal().getId());
-
+			venta.print();
+			
 			System.out.println("\nDETALLE:");
 			List<DetalleVenta> listaDetalle = abmDetalleVenta.traerDetallesVenta(venta.getId());
+	
 			
 			for (DetalleVenta detalle: listaDetalle) {
-				Producto producto = detalle.getProducto();
-				Perfume perfume = null;
-				Medicamento medicamento = null;
-
-				System.out.println("ID: " + producto.getId());
-				System.out.println("Laboratorio: " + producto.getLaboratorio());
-				System.out.println("Descripcion: " + producto.getDescripcion());
-				
-				if (producto instanceof Perfume){
-					perfume = (Perfume)producto;
-					System.out.println("Perfume: " + perfume.getComentario());
-				}else if(producto instanceof Medicamento){
-					medicamento = (Medicamento)producto;
-					System.out.println("Medicamento: " + medicamento.getComentario());
-				}
-				System.out.println("Precio: " + producto.getPrecio());
-				System.out.println("\n");
+				detalle.print();
 			}
 
 			System.out.println("\n");
@@ -77,37 +54,14 @@ public class Test1 {
 		System.out.println("\n");
 
 		for (Venta venta: lista) {
-			System.out.println("\nTICKET:");
-			System.out.println("Nro: " + (venta.getSucursal().getId() + "-" + venta.getId()));
-			System.out.println("Forma pago: " + venta.getFormaPago());
-			System.out.println("Total venta: " + venta.getTotalVenta());
-			System.out.println("Fecha: " + Funciones.traerFechaCorta(venta.getFecha()));
-			System.out.println("Cliente: " + venta.getCliente().getDni() + " " + venta.getCliente().getApellido());
-			System.out.println("Vendedor: " + venta.getVendedor().getDni()  + " " +  venta.getVendedor().getApellido());
-			System.out.println("Cajero: " + venta.getCajero().getDni()  + " " +  venta.getCajero().getApellido());
-			System.out.println("Sucursal: " + venta.getSucursal().getId());
+			venta.print();
+
 
 			System.out.println("\nDETALLE:");
 			List<DetalleVenta> listaDetalle = abmDetalleVenta.traerDetallesVenta(venta.getId());
 			
 			for (DetalleVenta detalle: listaDetalle) {
-				Producto producto = detalle.getProducto();
-				Perfume perfume = null;
-				Medicamento medicamento = null;
-
-				System.out.println("ID: " + producto.getId());
-				System.out.println("Laboratorio: " + producto.getLaboratorio());
-				System.out.println("Descripcion: " + producto.getDescripcion());
-				
-				if (producto instanceof Perfume){
-					perfume = (Perfume)producto;
-					System.out.println("Perfume: " + perfume.getComentario());
-				}else if(producto instanceof Medicamento){
-					medicamento = (Medicamento)producto;
-					System.out.println("Medicamento: " + medicamento.getComentario());
-				}
-				System.out.println("Precio: " + producto.getPrecio());
-				System.out.println("\n");
+				detalle.print();
 			}
 
 			System.out.println("\n");

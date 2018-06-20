@@ -9,7 +9,7 @@ set dv.subtotal = dv.precioUnitario * dv.cantidad
 UPDATE venta 
 INNER JOIN
 (
-    SELECT v2.id, sum(dv.precioUnitario) as totalGastado
+    SELECT v2.id, sum(dv.precioUnitario*dv.cantidad) as totalGastado
 	FROM (select*from venta) v2
 	INNER JOIN detalleventa dv
 	ON dv.idVenta = v2.id
