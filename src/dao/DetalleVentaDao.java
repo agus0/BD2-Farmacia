@@ -100,4 +100,21 @@ public class DetalleVentaDao{
 		return lista;
 	}
 /* --- */
+	
+	@SuppressWarnings("unchecked")
+	public List<DetalleVenta> traerDetallesVenta(int idVenta) throws HibernateException {
+		List<DetalleVenta> lista=null;
+		try {
+			iniciaOperacion();
+			lista = session.createQuery("from DetalleVenta dv "
+					+ "inner join fetch dv.venta v "
+					+ "inner join fetch dv.producto "
+					+ "where v.id = :idVenta ")
+					.setParameter("idVenta", idVenta)
+					.list();
+		} finally {
+			session.close();
+		}
+		return lista;
+	}
 }

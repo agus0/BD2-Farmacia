@@ -23,9 +23,9 @@ public class SucursalDao{
 		tx.rollback();
 		throw new HibernateException("ERROR en la capa de acceso a datos", he);
 	}
-	
 
-/* 1.ABM */
+
+	/* 1.ABM */
 	//Agregar
 	public int agregar(Sucursal objeto) {
 		int id=0;
@@ -41,7 +41,7 @@ public class SucursalDao{
 		}
 		return id;
 	}
-	
+
 	//Actualizar
 	public void actualizar(Sucursal objeto) throws HibernateException {
 		try {
@@ -55,7 +55,7 @@ public class SucursalDao{
 			session.close();
 		}
 	}
-	
+
 	//Eliminar
 	public void eliminar(Sucursal objeto) throws HibernateException {
 		try {
@@ -69,10 +69,10 @@ public class SucursalDao{
 			session.close();
 		}
 	}
-/* --- */
-	
-	
-/* 2.TRAYENDO LA INFORMACION */
+	/* --- */
+
+
+	/* 2.TRAYENDO LA INFORMACION */
 	//Mediante su clave primaria
 	public Sucursal traerSucursal(int idSucursal) throws HibernateException {
 		Sucursal objeto = null ;
@@ -84,7 +84,7 @@ public class SucursalDao{
 		}
 		return objeto;
 	}
-	
+
 
 	//Traer en una lista todos los Persona's que hayan.
 	@SuppressWarnings("unchecked")
@@ -99,15 +99,20 @@ public class SucursalDao{
 		}
 		return lista;
 	}
-/* --- */
-	
+	/* --- */
+
 	@SuppressWarnings("unchecked")
 	public List<Venta> traerVentasDeLaCadena(GregorianCalendar fecha1, GregorianCalendar fecha2) {
 		List<Venta> lista=null;
-		
+
 		try {
 			iniciaOperacion();
-			lista = session.createQuery("from Venta v inner join fetch v.cliente inner join fetch v.vendedor inner join fetch v.cajero inner join fetch v.sucursal inner join fetch v.detalleVentas dv inner join fetch dv.producto where v.fecha >= :fecha1 and v.fecha <= :fecha2")
+			lista = session.createQuery("from Venta v "
+					+ "inner join fetch v.cliente "
+					+ "inner join fetch v.vendedor "
+					+ "inner join fetch v.cajero "
+					+ "inner join fetch v.sucursal "
+					+ "where v.fecha >= :fecha1 and v.fecha <= :fecha2")
 					.setParameter("fecha1", fecha1)
 					.setParameter("fecha2", fecha2)
 					.list();
@@ -115,16 +120,21 @@ public class SucursalDao{
 			session.close();
 		}
 		return lista;
-	
+
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public List<Venta> traerVentasPorSucursal(GregorianCalendar fecha1, GregorianCalendar fecha2, int idSucursal) {
 		List<Venta> lista=null;
-		
+
 		try {
 			iniciaOperacion();
-			lista = session.createQuery("from Venta v inner join fetch v.cliente inner join fetch v.vendedor inner join fetch v.cajero inner join fetch v.sucursal sucu inner join fetch v.detalleVentas dv inner join fetch dv.producto where sucu.id = :idSucursal and v.fecha >= :fecha1 and v.fecha <= :fecha2")
+			lista = session.createQuery("from Venta v "
+					+ "inner join fetch v.cliente "
+					+ "inner join fetch v.vendedor "
+					+ "inner join fetch v.cajero "
+					+ "inner join fetch v.sucursal sucu "
+					+ "where sucu.id = :idSucursal and v.fecha >= :fecha1 and v.fecha <= :fecha2")
 					.setParameter("fecha1", fecha1)
 					.setParameter("fecha2", fecha2)
 					.setParameter("idSucursal", idSucursal)
@@ -134,33 +144,135 @@ public class SucursalDao{
 		}
 		return lista;
 	}
-	
-	
+
+
 	@SuppressWarnings("unchecked")
 	public List<Venta> traerVentasDeLaCadenaPorObraSocial(GregorianCalendar fecha1, GregorianCalendar fecha2, String obraSocial) {
 		List<Venta> lista=null;
-		
+
+		try {
+			iniciaOperacion();
+			if (obraSocial.isEmpty()){
+				lista = session.createQuery("from Venta v "
+						+ "inner join fetch v.cliente cliente "
+						+ "inner join fetch v.vendedor "
+						+ "inner join fetch v.cajero "
+						+ "inner join fetch v.sucursal "
+						+ "where cliente.afiliado = null "
+						+ "and v.fecha >= :fecha1 and v.fecha <= :fecha2")
+						.setParameter("fecha1", fecha1)
+						.setParameter("fecha2", fecha2)
+						.list();
+			}
+			else {
+
+				lista = session.createQuery("from Venta v "
+						+ "inner join fetch v.cliente cliente "
+						+ "left join fetch cliente.afiliado afiliado "
+						+ "left join fetch afiliado.obrasocial obrasocial "
+						+ "inner join fetch v.vendedor "
+						+ "inner join fetch v.cajero "
+						+ "inner join fetch v.sucursal "
+						+ "where obrasocial.nombre = :nombreObraSocial "
+						+ "and v.fecha >= :fecha1 and v.fecha <= :fecha2")
+						.setParameter("fecha1", fecha1)
+						.setParameter("fecha2", fecha2)
+						.setParameter("nombreObraSocial", obraSocial)
+						.list();
+			}
+		}finally {
+			session.close();
+		}
+		return lista;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Venta> traerVentasDeLaCadenaPorObraSocialYSucursal(GregorianCalendar fecha1, GregorianCalendar fecha2, String obraSocial, int idSucursal) {
+		List<Venta> lista=null;
+
+		try {
+			iniciaOperacion();
+			if (obraSocial.isEmpty()){
+				lista = session.createQuery("from Venta v "
+						+ "inner join fetch v.cliente cliente "
+						+ "inner join fetch v.vendedor "
+						+ "inner join fetch v.cajero "
+						+ "inner join fetch v.sucursal "
+						+ "where cliente.afiliado = null "
+						+ "and v.fecha >= :fecha1 and v.fecha <= :fecha2")
+						.setParameter("fecha1", fecha1)
+						.setParameter("fecha2", fecha2)
+						.list();
+			}
+			else {
+
+				lista = session.createQuery("from Venta v "
+						+ "inner join fetch v.cliente cliente "
+						+ "left join fetch cliente.afiliado afiliado "
+						+ "left join fetch afiliado.obrasocial obrasocial "
+						+ "inner join fetch v.vendedor "
+						+ "inner join fetch v.cajero "
+						+ "inner join fetch v.sucursal sucursal "
+						+ "where obrasocial.nombre = :nombreObraSocial "
+						+ "and sucursal.id = :idSucursal "
+						+ "and v.fecha >= :fecha1 and v.fecha <= :fecha2")
+						.setParameter("fecha1", fecha1)
+						.setParameter("fecha2", fecha2)
+						.setParameter("nombreObraSocial", obraSocial)
+						.setParameter("idSucursal", idSucursal)
+						.list();
+			}
+		}finally {
+			session.close();
+		}
+		return lista;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Venta> traerVentasDeLaCadenaPorMedioDePago(GregorianCalendar fecha1, GregorianCalendar fecha2, String medioDePago) {
+		List<Venta> lista=null;
+
 		try {
 			iniciaOperacion();
 			lista = session.createQuery("from Venta v "
-					+ "inner join fetch v.cliente cliente "
-					+ "inner join fetch cliente.afiliado afiliado"
-					+ "inner join fetch afiliado.obrasocial obrasocial"
+					+ "inner join fetch v.cliente "
 					+ "inner join fetch v.vendedor "
 					+ "inner join fetch v.cajero "
-					+ "inner join fetch v.sucursal "
-					+ "inner join fetch v.detalleVentas dv "
-					+ "inner join fetch dv.producto "
-					+ "where obrasocial.nombre = :nombreObraSocial "
+					+ "inner join fetch v.sucursal sucu "
+					+ "where v.formaPago = :medioDePago "
 					+ "and v.fecha >= :fecha1 and v.fecha <= :fecha2")
 					.setParameter("fecha1", fecha1)
 					.setParameter("fecha2", fecha2)
-					.setParameter("nombreObraSocial", obraSocial)
+					.setParameter("medioDePago", medioDePago)
 					.list();
 		}finally {
 			session.close();
 		}
 		return lista;
+	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Venta> traerVentasPorMedioDePagoYSucursal(GregorianCalendar fecha1, GregorianCalendar fecha2, String medioDePago, int idSucursal) {
+		List<Venta> lista=null;
+
+		try {
+			iniciaOperacion();
+			lista = session.createQuery("from Venta v "
+					+ "inner join fetch v.cliente "
+					+ "inner join fetch v.vendedor "
+					+ "inner join fetch v.cajero "
+					+ "inner join fetch v.sucursal sucu "
+					+ "where sucu.id = :idSucursal "
+					+ "and v.formaPago = :medioDePago "
+					+ "and v.fecha >= :fecha1 and v.fecha <= :fecha2")
+					.setParameter("fecha1", fecha1)
+					.setParameter("fecha2", fecha2)
+					.setParameter("idSucursal", idSucursal)
+					.setParameter("medioDePago", medioDePago)
+					.list();
+		}finally {
+			session.close();
+		}
+		return lista;
 	}
 }

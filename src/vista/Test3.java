@@ -11,26 +11,30 @@ import negocio.DetalleVentaABM;
 import negocio.Funciones;
 import negocio.SucursalABM;
 
-public class Test1 {
+public class Test3 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-		GregorianCalendar fecha1 = new GregorianCalendar(2018,4,1);
+		
+		GregorianCalendar fecha1 = new GregorianCalendar(2018,5,1);
 		GregorianCalendar fecha2 = new GregorianCalendar(2018,5,30);
-
+		
 		SucursalABM abmSucursal = new SucursalABM();
 		DetalleVentaABM abmDetalleVenta = new DetalleVentaABM();
 		List<Venta> lista = null;
-
-		//TRAER VENTAS DE LA CADENA
-		lista = abmSucursal.traerVentasDeLaCadena(fecha1, fecha2);
-
-		System.out.println("VENTAS DE LA CADENA");
+		String medioDePago = "";
+		
+		//TRAER VENTAS DE LA CADENA POR OBRA SOCIAL O PRIVADO
+		medioDePago = "Efectivo";
+		//obraSocial = ""; //poner esto si se quiere ver por quienes no tienen obra social
+		
+		lista = abmSucursal.traerVentasDeLaCadenaPorMedioDePago(fecha1, fecha2, medioDePago);
+		
+		System.out.println("VENTAS DE LA CADENA POR MEDIO DE PAGO");
 		System.out.println("Total de ventas: " + lista.size());
-
+		System.out.println("\n");
+		
 		for (Venta venta: lista) {
-			System.out.println("\nTICKET:");
 			System.out.println("Nro: " + (venta.getSucursal().getId() + "-" + venta.getId()));
 			System.out.println("Forma pago: " + venta.getFormaPago());
 			System.out.println("Total venta: " + venta.getTotalVenta());
@@ -67,17 +71,16 @@ public class Test1 {
 			System.out.println("______________________________________");
 			System.out.println("\n");
 		}
-
+		
 		//TRAER VENTAS POR SUCURSAL
-		int idSucursal = 1;
-		lista = abmSucursal.traerVentasPorSucursal(fecha1, fecha2, idSucursal);
-
+		int idSucursal = 1;		
+		lista = abmSucursal.traerVentasPorMedioDePagoYSucursal(fecha1, fecha2, medioDePago, idSucursal);
+		
 		System.out.println("VENTAS DE LA SUCURSAL Nº " + idSucursal);
 		System.out.println("Total de ventas: " + lista.size());
 		System.out.println("\n");
-
+		
 		for (Venta venta: lista) {
-			System.out.println("\nTICKET:");
 			System.out.println("Nro: " + (venta.getSucursal().getId() + "-" + venta.getId()));
 			System.out.println("Forma pago: " + venta.getFormaPago());
 			System.out.println("Total venta: " + venta.getTotalVenta());

@@ -78,7 +78,7 @@ public class Funciones {
 	}
 
 	public static String traerFechaCorta(GregorianCalendar fecha) {
-		return fechaConFormato(fecha.get(Calendar.DAY_OF_MONTH), fecha.get(Calendar.MONTH), fecha.get(Calendar.YEAR));
+		return fechaConFormato(fecha.get(Calendar.DAY_OF_MONTH), fecha.get(Calendar.MONTH+1), fecha.get(Calendar.YEAR));
 	}
 
 	public static String traerFechaCorta() {
