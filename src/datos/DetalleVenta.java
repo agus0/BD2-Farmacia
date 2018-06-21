@@ -80,8 +80,19 @@ public class DetalleVenta {
 				+ precioUnitario + ", subtotal=" + subtotal + "]";
 	}
 	public void print() {
+		
 	Producto producto = this.getProducto();
-	System.out.println("Cant:"+this.cantidad+"\tDescripcion: "+producto.getDescripcion()+"\t\t\tPrecio: "+this.getPrecioUnitario()+"\t\t\tImporte: "+this.getSubtotal());
+	String tipo = null;
+	Perfume perfume = null;
+	Medicamento medicamento = null;
+	if (producto instanceof Perfume){
+		 perfume = (Perfume)producto;
+		tipo = "Perfume: " + perfume.getComentario();
+	}else if(producto instanceof Medicamento){
+		medicamento = (Medicamento)producto;
+		tipo ="Medicamento: " + medicamento.getComentario();
+	}
+	System.out.println("Cant:"+this.cantidad+"\tDescripcion: "+producto.getDescripcion()+"\t"+tipo+"\t\t\tPrecio: "+this.getPrecioUnitario()+"\t\t\tImporte: "+this.getSubtotal());
 	}
 	
 }
