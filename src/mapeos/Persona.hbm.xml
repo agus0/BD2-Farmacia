@@ -38,6 +38,7 @@
 			<joined-subclass name="datos.Empleado" table="empleado">
 				<key column="idEmpleado"></key>
 				<property column="cuil" name="cuil" type="string"/>
+				<many-to-one column="idSucursal" name="sucursal" class="datos.Sucursal" not-null="false"/>
 			</joined-subclass>
 					
 		<!--  -->

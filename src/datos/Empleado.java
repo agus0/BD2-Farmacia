@@ -3,26 +3,25 @@ package datos;
 public class Empleado extends Persona{
 	private int idEmpleado;
 	private String cuil;
-
-	
+	private Sucursal sucursal;
 	
 	
 	public Empleado() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	public Empleado(String dni, String nombre, String apellido,String cuil) {
+	
+	public Empleado(String dni, String nombre, String apellido,String cuil, Sucursal sucursal) {
 		super(dni, nombre, apellido);
 		this.cuil = cuil;
-		// TODO Auto-generated constructor stub
+		this.sucursal = sucursal;
 	}
 
-	public int getIdEmpleado() {
+	protected int getIdEmpleado() {
 		return idEmpleado;
 	}
 
-	protected void setIdEmpleado(int idEmpleado) {
+	public void setIdEmpleado(int idEmpleado) {
 		this.idEmpleado = idEmpleado;
 	}
 
@@ -34,11 +33,18 @@ public class Empleado extends Persona{
 		this.cuil = cuil;
 	}
 
+	public Sucursal getSucursal() {
+		return sucursal;
+	}
+
+	public void setSucursal(Sucursal sucursal) {
+		this.sucursal = sucursal;
+	}
+
 	@Override
 	public String toString() {
-		return "Empleado [idEmpleado=" + idEmpleado + ", cuil=" + cuil + "]";
+		return "Empleado [idEmpleado=" + idEmpleado + ", cuil=" + cuil
+				+ ", sucursal=" + sucursal + "]";
 	}
-	
-	
 	
 }

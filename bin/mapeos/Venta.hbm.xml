@@ -27,7 +27,7 @@
 		<!-- 3.RELACIONES -->
 			<!-- 1..* -->
 				<set name="detalleVentas" table="detalleVenta" order-by="id asc" inverse="true" lazy="true" fetch="select">
-					<key column="id" not-null="true"/>
+					<key column="idVenta" not-null="true"/>
 					<one-to-many class="datos.DetalleVenta"/>
 				</set>
 			<!--  -->

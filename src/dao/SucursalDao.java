@@ -108,6 +108,8 @@ public class SucursalDao{
 		try {
 			iniciaOperacion();
 			lista = session.createQuery("from Venta v "
+					+ "inner join fetch v.detalleVentas dv "
+					+ "inner join fetch dv.producto "
 					+ "inner join fetch v.cliente "
 					+ "inner join fetch v.vendedor "
 					+ "inner join fetch v.cajero "
@@ -130,6 +132,8 @@ public class SucursalDao{
 		try {
 			iniciaOperacion();
 			lista = session.createQuery("from Venta v "
+					+ "inner join fetch v.detalleVentas dv "
+					+ "inner join fetch dv.producto "
 					+ "inner join fetch v.cliente "
 					+ "inner join fetch v.vendedor "
 					+ "inner join fetch v.cajero "
@@ -154,6 +158,8 @@ public class SucursalDao{
 			iniciaOperacion();
 			if (obraSocial.isEmpty()){
 				lista = session.createQuery("from Venta v "
+						+ "inner join fetch v.detalleVentas dv "
+						+ "inner join fetch dv.producto "
 						+ "inner join fetch v.cliente cliente "
 						+ "inner join fetch v.vendedor "
 						+ "inner join fetch v.cajero "
@@ -167,6 +173,8 @@ public class SucursalDao{
 			else {
 
 				lista = session.createQuery("from Venta v "
+						+ "inner join fetch v.detalleVentas dv "
+						+ "inner join fetch dv.producto "
 						+ "inner join fetch v.cliente cliente "
 						+ "left join fetch cliente.afiliado afiliado "
 						+ "left join fetch afiliado.obrasocial obrasocial "
@@ -194,6 +202,8 @@ public class SucursalDao{
 			iniciaOperacion();
 			if (obraSocial.isEmpty()){
 				lista = session.createQuery("from Venta v "
+						+ "inner join fetch v.detalleVentas dv "
+						+ "inner join fetch dv.producto "
 						+ "inner join fetch v.cliente cliente "
 						+ "inner join fetch v.vendedor "
 						+ "inner join fetch v.cajero "
@@ -207,6 +217,8 @@ public class SucursalDao{
 			else {
 
 				lista = session.createQuery("from Venta v "
+						+ "inner join fetch v.detalleVentas dv "
+						+ "inner join fetch dv.producto "
 						+ "inner join fetch v.cliente cliente "
 						+ "left join fetch cliente.afiliado afiliado "
 						+ "left join fetch afiliado.obrasocial obrasocial "
@@ -235,6 +247,8 @@ public class SucursalDao{
 		try {
 			iniciaOperacion();
 			lista = session.createQuery("from Venta v "
+					+ "inner join fetch v.detalleVentas dv "
+					+ "inner join fetch dv.producto "
 					+ "inner join fetch v.cliente "
 					+ "inner join fetch v.vendedor "
 					+ "inner join fetch v.cajero "
@@ -258,6 +272,8 @@ public class SucursalDao{
 		try {
 			iniciaOperacion();
 			lista = session.createQuery("from Venta v "
+					+ "inner join fetch v.detalleVentas dv "
+					+ "inner join fetch dv.producto "
 					+ "inner join fetch v.cliente "
 					+ "inner join fetch v.vendedor "
 					+ "inner join fetch v.cajero "
@@ -274,5 +290,29 @@ public class SucursalDao{
 			session.close();
 		}
 		return lista;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Venta> traerVentasDePerfumesDeLaCadena(GregorianCalendar fecha1, GregorianCalendar fecha2) {
+		List<Venta> lista=null;
+
+		try {
+			iniciaOperacion();
+			lista = session.createQuery("from Venta v "
+					+ "inner join fetch v.detalleVentas dv "
+					+ "inner join fetch dv.producto "
+					+ "inner join fetch v.cliente "
+					+ "inner join fetch v.vendedor "
+					+ "inner join fetch v.cajero "
+					+ "inner join fetch v.sucursal "
+					+ "where v.fecha >= :fecha1 and v.fecha <= :fecha2")
+					.setParameter("fecha1", fecha1)
+					.setParameter("fecha2", fecha2)
+					.list();
+		}finally {
+			session.close();
+		}
+		return lista;
+
 	}
 }

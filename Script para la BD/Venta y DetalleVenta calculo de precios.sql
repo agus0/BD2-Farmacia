@@ -15,4 +15,4 @@ INNER JOIN
 	ON dv.idVenta = v2.id
 	GROUP BY v2.id
 ) B using (id)
-SET venta.totalVenta = totalGastado
+SET venta.totalVenta = totalGastado;

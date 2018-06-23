@@ -1,14 +1,10 @@
 package vista;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Set;
 
 import datos.DetalleVenta;
-import datos.Medicamento;
-import datos.Perfume;
-import datos.Producto;
 import datos.Venta;
-import negocio.DetalleVentaABM;
-import negocio.Funciones;
 import negocio.SucursalABM;
 
 public class Test1 {
@@ -20,12 +16,10 @@ public class Test1 {
 		GregorianCalendar fecha2 = new GregorianCalendar(2018,5,30);
 
 		SucursalABM abmSucursal = new SucursalABM();
-		DetalleVentaABM abmDetalleVenta = new DetalleVentaABM();
 		List<Venta> lista = null;
 
 		//TRAER VENTAS DE LA CADENA
 		lista = abmSucursal.traerVentasDeLaCadena(fecha1, fecha2);
-
 		System.out.println("VENTAS DE LA CADENA");
 		System.out.println("Total de ventas: " + lista.size());
 
@@ -33,7 +27,7 @@ public class Test1 {
 			venta.print();
 			
 			System.out.println("\nDETALLE:");
-			List<DetalleVenta> listaDetalle = abmDetalleVenta.traerDetallesVenta(venta.getId());
+			Set<DetalleVenta> listaDetalle = venta.getDetalleVentas();
 	
 			
 			for (DetalleVenta detalle: listaDetalle) {
@@ -58,7 +52,7 @@ public class Test1 {
 
 
 			System.out.println("\nDETALLE:");
-			List<DetalleVenta> listaDetalle = abmDetalleVenta.traerDetallesVenta(venta.getId());
+			Set<DetalleVenta> listaDetalle = venta.getDetalleVentas();
 			
 			for (DetalleVenta detalle: listaDetalle) {
 				detalle.print();

@@ -1,0 +1,6 @@
+22/06/2018
+
+En total, "1-TODA LA DATA.sql" contiene 327 query's en donde prácticamente todos son "insert into" y una minoría son calculos matemáticos para determinar el total a pagar de la venta a partir del subtotal y precio unitario del detalle de venta que se cargó en función del precio del producto.
+
+Todos los datos, excepto los que requerían algún cálculo vía SQL, fueron generados mediante la web "www.mockaroo.com".
+"Need some mock data to test your app? Mockaroo lets you generate up to 1,000 rows of realistic test data in CSV, JSON, SQL, and Excel formats".

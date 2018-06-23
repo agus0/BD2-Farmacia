@@ -7,14 +7,15 @@ import java.util.List;
 
 import dao.EmpleadoDao;
 import datos.Empleado;
+import datos.Sucursal;
 public class EmpleadoABM {
 
 	EmpleadoDao dao = new EmpleadoDao();
 	
 	
 /* 1.ABM */
-	public int agregar(String dni, String nombre, String apellido,String descripcion) {
-		Empleado empleado = new Empleado(dni,nombre,apellido,descripcion);
+	public int agregar(String dni, String nombre, String apellido,String cuil, Sucursal sucursal) {
+		Empleado empleado = new Empleado(dni, nombre, apellido, cuil, sucursal);
 		return dao.agregar(empleado);
 	}
 	

@@ -46,10 +46,6 @@ public class DetalleVentaABM {
 		return dao.traerDetalleVenta();
 	}
 	
-	public List<DetalleVenta> traerDetallesVenta(int idVenta) {
-		return dao.traerDetallesVenta(idVenta);
-	}
-	
 	
 /* --- */
 	

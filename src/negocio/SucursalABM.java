@@ -48,5 +48,7 @@ public class SucursalABM {
 	public List<Venta> traerVentasPorMedioDePagoYSucursal(GregorianCalendar fecha1, GregorianCalendar fecha2, String medioDePago, int idSucursal) {
 		return dao.traerVentasPorMedioDePagoYSucursal(fecha1, fecha2, medioDePago, idSucursal);
 	}
+	
+	
 }
 

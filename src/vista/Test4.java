@@ -7,7 +7,7 @@ import datos.DetalleVenta;
 import datos.Venta;
 import negocio.SucursalABM;
 
-public class Test3 {
+public class Test4 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

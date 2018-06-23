@@ -7,7 +7,7 @@ public class DetalleVenta {
 	private int cantidad;
 	private float precioUnitario;
 	private float subtotal;
-	
+
 	public DetalleVenta() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -62,8 +62,8 @@ public class DetalleVenta {
 	public void setSubtotal(float subtotal) {
 		this.subtotal = subtotal;
 	}
-	
-	
+
+
 
 	public Venta getVenta() {
 		return venta;
@@ -73,26 +73,27 @@ public class DetalleVenta {
 		this.venta = venta;
 	}
 
+	public void print() {
+		Producto producto = this.getProducto();
+		String tipo = null;
+		Perfume perfume = null;
+		Medicamento medicamento = null;
+	
+		if (producto instanceof Perfume){
+			perfume = (Perfume)producto;
+			tipo = "Perfume: " + perfume.getComentario();
+		}else if(producto instanceof Medicamento){
+			medicamento = (Medicamento)producto;
+			tipo ="Medicamento: " + medicamento.getComentario();
+		}
+		System.out.println("Cant:"+this.cantidad+"\tDescripcion: "+producto.getDescripcion()+"\t"+tipo+"\t\t\tPrecio: "+this.getPrecioUnitario()+"\t\t\tImporte: "+this.getSubtotal());
+	}
+	
 	@Override
 	public String toString() {
 		return "DetalleVenta [id=" + id + ", producto=" + producto + ", venta="
 				+ venta + ", cantidad=" + cantidad + ", precioUnitario="
 				+ precioUnitario + ", subtotal=" + subtotal + "]";
 	}
-	public void print() {
-		
-	Producto producto = this.getProducto();
-	String tipo = null;
-	Perfume perfume = null;
-	Medicamento medicamento = null;
-	if (producto instanceof Perfume){
-		 perfume = (Perfume)producto;
-		tipo = "Perfume: " + perfume.getComentario();
-	}else if(producto instanceof Medicamento){
-		medicamento = (Medicamento)producto;
-		tipo ="Medicamento: " + medicamento.getComentario();
-	}
-	System.out.println("Cant:"+this.cantidad+"\tDescripcion: "+producto.getDescripcion()+"\t"+tipo+"\t\t\tPrecio: "+this.getPrecioUnitario()+"\t\t\tImporte: "+this.getSubtotal());
-	}
-	
+
 }
