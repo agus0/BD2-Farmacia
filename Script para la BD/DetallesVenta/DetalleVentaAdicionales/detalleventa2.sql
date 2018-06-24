@@ -1,0 +1,15 @@
+insert into detalleventa (cantidad, idProducto, idVenta) values (3, 10, 61);
+insert into detalleventa (cantidad, idProducto, idVenta) values (1, 10, 62);
+insert into detalleventa (cantidad, idProducto, idVenta) values (1, 10, 63);
+insert into detalleventa (cantidad, idProducto, idVenta) values (3, 10, 64);
+insert into detalleventa (cantidad, idProducto, idVenta) values (2, 10, 65);
+insert into detalleventa (cantidad, idProducto, idVenta) values (1, 10, 66);
+insert into detalleventa (cantidad, idProducto, idVenta) values (2, 10, 67);
+insert into detalleventa (cantidad, idProducto, idVenta) values (1, 10, 68);
+insert into detalleventa (cantidad, idProducto, idVenta) values (1, 10, 69);
+insert into detalleventa (cantidad, idProducto, idVenta) values (3, 10, 70);
+insert into detalleventa (cantidad, idProducto, idVenta) values (1, 10, 71);
+insert into detalleventa (cantidad, idProducto, idVenta) values (3, 10, 72);
+insert into detalleventa (cantidad, idProducto, idVenta) values (3, 10, 73);
+insert into detalleventa (cantidad, idProducto, idVenta) values (2, 10, 74);
+insert into detalleventa (cantidad, idProducto, idVenta) values (2, 10, 75);

@@ -1,0 +1,14 @@
+DetalleVenta (cantidad,idProducto,idVenta)
+
+La cantidad siempre es un random entre 1, 2 y 3.
+
+Medicamentos 	de 1 - 7
+Perfumería	de 8 - 10
+
+PRIMERA TANDA DE 90 DETALLEVENTA PARA HACER QUE UNA VENTA TENGA AL MENOS UN DETALLEVENTA
+60 detalleventa con medicamentos de id random entre 1 - 4 (idVenta de 1 a 60).
+30 detalleventa con perfumes de id random entre 8 - 9 (idVenta de 61 a 90). Tip: se usó secuencia de Mockaroo para empezar desde idVenta = 61.
+
+SEGUNDA TANDA DE 45 DETALLEVENTA PARA HACER QUE CADA VENTA TENGA EN PROMEDIO 1,5 DETALLEVENTA
+30 detalleventa con medicamentos de id random entre 5 - 7 (idVenta de 1 a 30).
+15 detalleventa con perfumes de 10 - 10 (idVenta de 61 a 75).

@@ -25,8 +25,8 @@
 		<!-- 3.RELACIONES -->
 
 			<!-- *..1 -->
-				<many-to-one column="idProducto" name="producto" class="datos.Producto" not-null="true"/>
-				<many-to-one column="idVenta" name="venta" class="datos.Venta" not-null="true"/>
+				<many-to-one column="idProducto" name="producto" class="datos.Producto" lazy="false" not-null="true"/>
+				<many-to-one column="idVenta" name="venta" class="datos.Venta" lazy="false" not-null="true"/>
 			<!--  -->
 					
 		<!--  -->

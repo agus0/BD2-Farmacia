@@ -7,7 +7,7 @@ import datos.DetalleVenta;
 import datos.Venta;
 import negocio.SucursalABM;
 
-public class Test2 {
+public class Test5 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -17,19 +17,10 @@ public class Test2 {
 		
 		SucursalABM abmSucursal = new SucursalABM();
 		List<Venta> lista = null;
-		String obraSocial = "";
 		
-		//TRAER VENTAS DE LA CADENA POR OBRA SOCIAL O PRIVADO
-		obraSocial = "OSECAC";
-		//obraSocial = ""; //poner esto si se quiere ver por quienes no tienen obra social
+		lista = abmSucursal.traerRankingDeVentasDeProductosDeLaCadena(fecha1, fecha2);
 		
-		lista = abmSucursal.traerVentasDeLaCadenaPorObraSocial(fecha1, fecha2, obraSocial);
-		
-		System.out.println("VENTAS DE LA CADENA POR OBRA SOCIAL/PRIVADO");
-		if (obraSocial.isEmpty())
-			System.out.println("Sin obra social");
-		else
-			System.out.println("Obra social: " + obraSocial);	
+		System.out.println("RANKING DE VENTAS DE PRODUCTOS DE LA CADENA POR MONTO");
 		System.out.println("Total de ventas: " + lista.size());
 		System.out.println("\n");
 		
@@ -49,10 +40,10 @@ public class Test2 {
 		}
 		
 		//TRAER VENTAS POR SUCURSAL
-		int idSucursal = 1;		
-		lista = abmSucursal.traerVentasDeLaCadenaPorObraSocialYSucursal(fecha1, fecha2, obraSocial, idSucursal);
+		int idSucursal = 3;		
+		lista = abmSucursal.traerRankingDeVentasDeProductosDeLaSucursal(fecha1, fecha2, idSucursal);
 		
-		System.out.println("VENTAS DE LA SUCURSAL Nº " + idSucursal);
+		System.out.println("RANKING DE VENTAS DE PRODUCTOS POR MONTO DE LA SUCURSAL Nº " + idSucursal);
 		System.out.println("Total de ventas: " + lista.size());
 		System.out.println("\n");
 		

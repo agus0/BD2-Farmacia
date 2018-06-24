@@ -12,20 +12,17 @@ public class Test4 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		GregorianCalendar fecha1 = new GregorianCalendar(2018,4,1);
+		GregorianCalendar fecha1 = new GregorianCalendar(2016,4,1);
 		GregorianCalendar fecha2 = new GregorianCalendar(2018,5,30);
 		
 		SucursalABM abmSucursal = new SucursalABM();
 		List<Venta> lista = null;
-		String medioDePago = "";
+		int tipoProducto = 2; //1=medi 2=perf
 		
-		//TRAER VENTAS DE LA CADENA POR OBRA SOCIAL O PRIVADO
-		medioDePago = "Efectivo";
-		//obraSocial = ""; //poner esto si se quiere ver por quienes no tienen obra social
 		
-		lista = abmSucursal.traerVentasDeLaCadenaPorMedioDePago(fecha1, fecha2, medioDePago);
+		lista = abmSucursal.traerVentasDeProductosDeLaCadena(fecha1, fecha2,tipoProducto);
 		
-		System.out.println("VENTAS DE LA CADENA POR MEDIO DE PAGO");
+		System.out.println("VENTAS DE PRODUCTOS DE LA CADENA");
 		System.out.println("Total de ventas: " + lista.size());
 		System.out.println("\n");
 		
@@ -45,10 +42,10 @@ public class Test4 {
 		}
 		
 		//TRAER VENTAS POR SUCURSAL
-		int idSucursal = 1;		
-		lista = abmSucursal.traerVentasPorMedioDePagoYSucursal(fecha1, fecha2, medioDePago, idSucursal);
+		int idSucursal = 3;		
+		lista = abmSucursal.traerVentasDeProductosDeLaSucursal(fecha1, fecha2, tipoProducto, idSucursal);
 		
-		System.out.println("VENTAS DE LA SUCURSAL Nº " + idSucursal);
+		System.out.println("VENTAS DE PRODUCTOS DE LA SUCURSAL Nº " + idSucursal);
 		System.out.println("Total de ventas: " + lista.size());
 		System.out.println("\n");
 		

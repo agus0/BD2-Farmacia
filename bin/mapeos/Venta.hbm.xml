@@ -26,7 +26,8 @@
 		
 		<!-- 3.RELACIONES -->
 			<!-- 1..* -->
-				<set name="detalleVentas" table="detalleVenta" order-by="id asc" inverse="true" lazy="true" fetch="select">
+				<!-- Al estar lazy=false, cada vez que se traiga una venta, se inicializara automaticamente la coleccion -->
+				<set name="detalleVentas" table="detalleVenta" order-by="id asc" inverse="true" lazy="false" fetch="select">
 					<key column="idVenta" not-null="true"/>
 					<one-to-many class="datos.DetalleVenta"/>
 				</set>

@@ -116,7 +116,7 @@ public class Venta {
 	
 	public void print() {
 		System.out.println("\nTICKET:");
-		System.out.println("Nro: " + (this.getSucursal().getId() + "-" + this.getId())+"\t\tFecha: " + Funciones.traerFechaCorta(this.getFecha()));
+		System.out.println("Nro: " + this.getId()+"\t\tFecha: " + Funciones.traerFechaCorta(this.getFecha()));
 		System.out.println("Forma pago: " + this.getFormaPago()+"\tSucursal nro " + this.getSucursal().getId());
 		
 		

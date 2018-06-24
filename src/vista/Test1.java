@@ -12,7 +12,7 @@ public class Test1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		GregorianCalendar fecha1 = new GregorianCalendar(2018,4,1);
+		GregorianCalendar fecha1 = new GregorianCalendar(2016,4,1);
 		GregorianCalendar fecha2 = new GregorianCalendar(2018,5,30);
 
 		SucursalABM abmSucursal = new SucursalABM();
